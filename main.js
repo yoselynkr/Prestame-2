@@ -28,10 +28,10 @@ class vehiculo extends prestamo {
 
     }
     monto() {
-        if (modelo === n)
+        if (this.modelo === n)
             return 5000
         else
-            if (modelo === v)
+            if (this.modelo === v)
                 return 3000
             else
                 return 1000
@@ -52,7 +52,10 @@ class Banco {
         this.acumTotal = aT
     }
     procesar(p) {
-        this.acumTotal += p.montoFinal()
+        if (v instanceof prestamo){
+            this.acumMontoFinal += p.montoFinal()
+            this.acumIntereses += p.intereses()
+        }
     }
     porcIntereses() {
         this.acumIntereses / this.acumMontoFinal * 100
@@ -90,7 +93,9 @@ function main() {
     salida.innerHTML += `Cedula: ${prestamo6.cedula} Edo.Civil: ${prestamo6.edoCivil} Modelo: ${prestamo6.modelo} Monto: ${prestamo6.monto()} Monto Final: ${prestamo6.montoFinal()} Intereses: ${prestamo6.intereses()} <br>`
     salida.innerHTML += `Cedula: ${prestamo7.cedula} Edo.Civil: ${prestamo7.edoCivil} Modelo: ${prestamo7.modelo} Monto: ${prestamo7.monto()} Monto Final: ${prestamo7.montoFinal()} Intereses: ${prestamo7.intereses()} <br>`
     salida.innerHTML += `Cedula: ${prestamo8.cedula} Edo.Civil: ${prestamo8.edoCivil} Modelo: ${prestamo8.modelo} Monto: ${prestamo8.monto()} Monto Final: ${prestamo8.montoFinal()} Intereses: ${prestamo8.intereses()} <br>`
-
+salida.innerHTML += `Monto total de prestamos: ${banco.acumTotal}`
+salida.innerHTML += `Monto intereses: ${banco.acumIntereses}`
+salida.innerHTML += `Porcentaje de intereses: ${banco.porcIntereses()}`
 }
 
 
