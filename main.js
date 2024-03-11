@@ -32,16 +32,16 @@ class vehiculo extends prestamo {
             return 5000
         else
             if (this.modelo === "viejo")
-                return 3000
+                return 1000
             else
                 if (this.modelo === "usado")
-                    return 1000
+                    return 3000
     }
     montoFinal() {
         if (this.edoCivil === "casado")
-            return this.monto() * 1.20
+            return this.monto() * .20
         else
-            return this.monto() * 1.10
+            return this.monto() * 0.10
     }
     intereses() {
         return this.montoFinal() * 0.20
@@ -71,10 +71,10 @@ function main() {
     let prestamo3 = new vivienda(111, "casado", 2000)
     let prestamo4 = new vivienda(333, "divorciado", 3000)
 
-    let prestamo5 = new vehiculo(555, "soltero", "usado", 3000)
-    let prestamo6 = new vehiculo(777, "casado", "viejo", 1000)
-    let prestamo7 = new vehiculo(999, "casado", "nuevo", 5000)
-    let prestamo8 = new vehiculo(444, "divorciado", "usado", 3000)
+    let prestamo5 = new vehiculo(555, "soltero", "usado")
+    let prestamo6 = new vehiculo(777, "casado", "viejo")
+    let prestamo7 = new vehiculo(999, "casado", "nuevo")
+    let prestamo8 = new vehiculo(444, "divorciado", "usado")
 
     let banco = new Banco(0, 0, 0)
 
