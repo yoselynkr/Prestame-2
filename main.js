@@ -39,9 +39,9 @@ class vehiculo extends prestamo {
     }
     montoFinal() {
         if (this.edoCivil === "casado")
-            return this.monto() * .20
+            return (this.monto() * 0.10) + this.monto()
         else
-            return this.monto() * 0.10
+            return this.monto()
     }
     intereses() {
         return this.montoFinal() * 0.20
@@ -55,10 +55,10 @@ class Banco {
         this.acumTotal = aT
     }
     procesar(p) {
-        if (p instanceof prestamo) {
-            this.acumTotal += p.montoFinal()
+         (p instanceof prestamo) 
+            this.acumMontoFinal += p.montoFinal()
             this.acumIntereses += p.intereses()    
-        }
+            
     }
     porcIntereses() {
         return this.acumIntereses / this.acumMontoFinal * 100
