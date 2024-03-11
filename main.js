@@ -56,7 +56,8 @@ class Banco {
     }
     procesar(p) {
         if (p instanceof prestamo) {
-            return this.acumTotal += p.montoFinal()
+            this.acumTotal += p.montoFinal()
+            this.acumIntereses += p.intereses()    
         }
     }
     porcIntereses() {
