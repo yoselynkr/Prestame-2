@@ -55,7 +55,7 @@ class Banco {
         this.acumTotal = aT
     }
     procesar(p) {
-         (p instanceof prestamo) 
+          
             this.acumMontoFinal += p.montoFinal()
             this.acumIntereses += p.intereses()    
             
@@ -99,7 +99,7 @@ function main() {
     salida.innerHTML += `7) Cedula: ${prestamo7.cedula} <br> Edo.Civil: ${prestamo7.edoCivil} <br> Modelo: ${prestamo7.modelo} <br> Monto: ${prestamo7.monto()} <br> Monto Final: ${prestamo7.montoFinal()} <br> Intereses: ${prestamo7.intereses()} <br>`
     salida.innerHTML += `8) Cedula: ${prestamo8.cedula} <br> Edo.Civil: ${prestamo8.edoCivil} <br> Modelo: ${prestamo8.modelo} <br> Monto: ${prestamo8.monto()} <br> Monto Final: ${prestamo8.montoFinal()} <br> Intereses: ${prestamo8.intereses()} <br>`
 
-    salida.innerHTML += `<br> Monto total de prestamos: ${banco.acumTotal}`
+    salida.innerHTML += `<br> Monto total de prestamos: ${banco.acumMontoFinal}`
     salida.innerHTML += `<br> Monto intereses: ${banco.acumIntereses}`
     salida.innerHTML += `<br> Porcentaje de intereses: ${banco.porcIntereses()}`
 }
