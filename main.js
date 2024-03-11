@@ -12,10 +12,10 @@ class vivienda extends prestamo {
     }
 
     montoFinal() {
-        if (this.edoCivil === "c")
-            return this.solicitado + 0.10
+        if (this.edoCivil === "casado")
+            return (this.solicitado * 0.10) + this.solicitado
         else
-            return 0
+            return this.solicitado
     }
     intereses() {
         return this.montoFinal() * 0.10
@@ -28,17 +28,20 @@ class vehiculo extends prestamo {
 
     }
     monto() {
-        if (this.modelo === "n")
+        if (this.modelo === "nuevo")
             return 5000
         else
-            if (this.modelo === "v")
+            if (this.modelo === "viejo")
                 return 3000
             else
-                return 1000
+                if (this.modelo === "usado")
+                    return 1000
     }
     montoFinal() {
-        if (this.edoCivil === "c")
-            return this.monto() + 0.10
+        if (this.edoCivil === "casado")
+            return this.monto() * 1.20
+        else
+            return this.monto() * 1.10
     }
     intereses() {
         return this.montoFinal() * 0.20
@@ -86,18 +89,18 @@ function main() {
 
     salida.innerHTML = "Prestamo <br>"
 
-    salida.innerHTML += `1) Cedula: ${prestamo1.cedula} Edo.Civil: ${prestamo1.edoCivil} Solicitado: ${prestamo1.solicitado} Monto Final: ${prestamo1.montoFinal()} Intereses: ${prestamo1.intereses()} <br>`
-    salida.innerHTML += `2) Cedula: ${prestamo2.cedula} Edo.Civil: ${prestamo2.edoCivil} Solicitado: ${prestamo2.solicitado} Monto Final: ${prestamo2.montoFinal()} Intereses: ${prestamo2.intereses()} <br>`
-    salida.innerHTML += `3) Cedula: ${prestamo3.cedula} Edo.Civil: ${prestamo3.edoCivil} Solicitado: ${prestamo3.solicitado} Monto Final: ${prestamo3.montoFinal()} Intereses: ${prestamo3.intereses()} <br>`
-    salida.innerHTML += `4) Cedula: ${prestamo4.cedula} Edo.Civil: ${prestamo4.edoCivil} Solicitado: ${prestamo4.solicitado} Monto Final: ${prestamo4.montoFinal()} Intereses: ${prestamo4.intereses()} <br>`
-    salida.innerHTML += `5) Cedula: ${prestamo5.cedula} Edo.Civil: ${prestamo5.edoCivil} Modelo: ${prestamo5.modelo} Monto: ${prestamo5.monto()} Monto Final: ${prestamo5.montoFinal()} Intereses: ${prestamo5.intereses()} <br>`
-    salida.innerHTML += `6) Cedula: ${prestamo6.cedula} Edo.Civil: ${prestamo6.edoCivil} Modelo: ${prestamo6.modelo} Monto: ${prestamo6.monto()} Monto Final: ${prestamo6.montoFinal()} Intereses: ${prestamo6.intereses()} <br>`
-    salida.innerHTML += `7) Cedula: ${prestamo7.cedula} Edo.Civil: ${prestamo7.edoCivil} Modelo: ${prestamo7.modelo} Monto: ${prestamo7.monto()} Monto Final: ${prestamo7.montoFinal()} Intereses: ${prestamo7.intereses()} <br>`
-    salida.innerHTML += `8) Cedula: ${prestamo8.cedula} Edo.Civil: ${prestamo8.edoCivil} Modelo: ${prestamo8.modelo} Monto: ${prestamo8.monto()} Monto Final: ${prestamo8.montoFinal()} Intereses: ${prestamo8.intereses()} <br>`
+    salida.innerHTML += `1) Cedula: ${prestamo1.cedula} <br> Edo.Civil: ${prestamo1.edoCivil} <br> Solicitado: ${prestamo1.solicitado} <br> Monto Final: ${prestamo1.montoFinal()} <br> Intereses: ${prestamo1.intereses()} <br>`
+    salida.innerHTML += `2) Cedula: ${prestamo2.cedula} <br> Edo.Civil: ${prestamo2.edoCivil} <br> Solicitado: ${prestamo2.solicitado} <br> Monto Final: ${prestamo2.montoFinal()} <br> Intereses: ${prestamo2.intereses()} <br>`
+    salida.innerHTML += `3) Cedula: ${prestamo3.cedula} <br> Edo.Civil: ${prestamo3.edoCivil} <br> Solicitado: ${prestamo3.solicitado} <br> Monto Final: ${prestamo3.montoFinal()} <br> Intereses: ${prestamo3.intereses()} <br>`
+    salida.innerHTML += `4) Cedula: ${prestamo4.cedula} <br> Edo.Civil: ${prestamo4.edoCivil} <br> Solicitado: ${prestamo4.solicitado} <br> Monto Final: ${prestamo4.montoFinal()} <br> Intereses: ${prestamo4.intereses()} <br>`
+    salida.innerHTML += `5) Cedula: ${prestamo5.cedula} <br> Edo.Civil: ${prestamo5.edoCivil} <br> Modelo: ${prestamo5.modelo} <br> Monto: ${prestamo5.monto()} <br> Monto Final: ${prestamo5.montoFinal()} <br> Intereses: ${prestamo5.intereses()} <br>`
+    salida.innerHTML += `6) Cedula: ${prestamo6.cedula} <br> Edo.Civil: ${prestamo6.edoCivil} <br> Modelo: ${prestamo6.modelo} <br> Monto: ${prestamo6.monto()} <br> Monto Final: ${prestamo6.montoFinal()} <br> Intereses: ${prestamo6.intereses()} <br>`
+    salida.innerHTML += `7) Cedula: ${prestamo7.cedula} <br> Edo.Civil: ${prestamo7.edoCivil} <br> Modelo: ${prestamo7.modelo} <br> Monto: ${prestamo7.monto()} <br> Monto Final: ${prestamo7.montoFinal()} <br> Intereses: ${prestamo7.intereses()} <br>`
+    salida.innerHTML += `8) Cedula: ${prestamo8.cedula} <br> Edo.Civil: ${prestamo8.edoCivil} <br> Modelo: ${prestamo8.modelo} <br> Monto: ${prestamo8.monto()} <br> Monto Final: ${prestamo8.montoFinal()} <br> Intereses: ${prestamo8.intereses()} <br>`
 
-    salida.innerHTML += `Monto total de prestamos:  ${banco.acumTotal}`
-    salida.innerHTML += `Monto intereses: ${banco.acumIntereses}`
-    salida.innerHTML += `Porcentaje de intereses: ${banco.porcIntereses()}`
+    salida.innerHTML += `<br> Monto total de prestamos: ${banco.acumTotal}`
+    salida.innerHTML += `<br> Monto intereses: ${banco.acumIntereses}`
+    salida.innerHTML += `<br> Porcentaje de intereses: ${banco.porcIntereses()}`
 }
 
 
